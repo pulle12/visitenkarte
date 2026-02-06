@@ -35,7 +35,7 @@ $daten = $name . "\n" . $telefon . "\n" . $email . "\n" . $firma . "\n" . $posit
     <link rel="stylesheet" href="">
 </head>
 <body>
-<div class="visitenkarte" style="border:1px solid #ccc;padding:16px;max-width:420px;font-family:Arial,Helvetica,sans-serif;">
+<div style="border:1px solid #ccc;padding:16px;max-width:420px;font-family:Arial,Helvetica,sans-serif;">
     <header style="margin-bottom:8px;">
         <h2 style="margin:0;font-size:1.25rem;"><?php echo $name ?: 'Vorname Nachname'; ?></h2>
         <?php if ($position): ?><div style="color:#555;margin-top:4px;"><?php echo $position; ?></div><?php endif; ?>
@@ -54,14 +54,89 @@ $daten = $name . "\n" . $telefon . "\n" . $email . "\n" . $firma . "\n" . $posit
 
     <footer style="margin-top:12px;">
         <div style="display:inline-block;">
-            <?php include('createpdf.php'); ?>
-            <?php include('createqr.php'); ?>
         </div>
     </footer>
 </div>
+<div class="tools-panel">
+    <?php include('createpdf.php'); ?>
+    <?php include('createqr.php'); ?>
+</div>
+
 
 <script src="" async defer></script>
 </body>
+<style>
+    .tools-panel {
+        display: grid;
+        grid-template-columns: 1fr 240px;
+        gap: 16px;
+        margin-top: 16px;
+        align-items: start;
+        max-width: 920px;
+    }
+    .tools-panel .card {
+        background: #fff;
+        border: 1px solid #e9e9e9;
+        border-radius: 10px;
+        box-shadow: 0 6px 18px rgba(20,20,20,0.04);
+        padding: 14px;
+    }
+    .tools-panel h3 {
+        margin: 0 0 8px 0;
+        font-size: 1rem;
+        color: #222;
+    }
+    .pdf-preview {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .pdf-preview .preview {
+        width: 100%;
+        max-height: 320px;
+        overflow: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #fafafa;
+        border-radius: 6px;
+        padding: 8px;
+        border: 1px solid #f0f0f0;
+    }
+    .pdf-preview a.btn {
+        display: inline-block;
+        padding: 8px 12px;
+        background: #0078d4;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 6px;
+        font-size: 0.95rem;
+    }
+    .qr-box {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+        justify-content: start;
+    }
+    .qr-box img {
+        width: 180px;
+        height: 180px;
+        background: #fff;
+        border-radius: 8px;
+        border: 1px solid #e6e6e6;
+        padding: 8px;
+    }
+    .tools-meta {
+        font-size: 0.85rem;
+        color: #666;
+    }
+    @media (max-width: 760px) {
+        .tools-panel { grid-template-columns: 1fr; }
+        .qr-box img { width: 140px; height: 140px; }
+    }
+</style>
 </html>
 <!-- HTMl ausgabe der visitankarte -->
 <!-- QR und PDF einbinden! -->

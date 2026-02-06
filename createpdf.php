@@ -21,7 +21,6 @@ $pdfContent = $pdf->Output('S');
 $b64 = base64_encode($pdfContent);
 $dataUri = 'data:application/pdf;base64,' . $b64;
 
-// Ausgabe: Download-Link und kleines eingebettetes Vorschaubild
 echo '<div style="text-align:center;">';
 echo '<a href="' . htmlspecialchars($dataUri, ENT_QUOTES, 'UTF-8') . '" download="visitenkarte.pdf">PDF herunterladen</a>';
 echo '<br>';
