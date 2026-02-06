@@ -1,7 +1,7 @@
 <?php
 require_once("vendor/autoload.php");
 require_once("Visitenkarte.php");
-$v = new Visitenkarte("Max", "Mustermann", "+43 123 456789", "max@mustermann.at", "Musterfirma GmbH", "Geschäftsführer", "Musterstraße 1, 6020 Innsbruck", "www.musterfirma.at");
+$v = new Visitenkarte("Max", "Mustermann", "+43 123 456789", "max@mustermann.at", "Musterfirma GmbH", "Geschaeftsfuehrer", "Musterstrasse 1, 6020 Innsbruck", "www.musterfirma.at");
 function getField($obj, $prop) { // KI-generierte Hilfsmethode, die auch private Datenfelder sieht (über Getter)
     if (isset($obj->$prop)) {
         return htmlspecialchars($obj->$prop, ENT_QUOTES, 'UTF-8');
@@ -22,7 +22,7 @@ $firma = getField($v, 'firma') ?: getField($v, 'company');
 $position = getField($v, 'position') ?: getField($v, 'job');
 $adresse = getField($v, 'adresse') ?: getField($v, 'address');
 $website = getField($v, 'website') ?: getField($v, 'web');
-$daten = $vorname . "\n" . $nachname . "\n" . $name . "\n" . $telefon . "\n" . $email . "\n" . $firma . "\n" . $position . "\n" . $adresse . "\n" . $website;
+$daten = $name . "\n" . $telefon . "\n" . $email . "\n" . $firma . "\n" . $position . "\n" . $adresse . "\n" . $website;
 ?>
 <!DOCTYPE html>
 <html>
