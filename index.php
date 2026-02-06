@@ -61,9 +61,6 @@ $daten = $name . "\n" . $telefon . "\n" . $email . "\n" . $firma . "\n" . $posit
     <?php include('createpdf.php'); ?>
     <?php include('createqr.php'); ?>
 </div>
-
-
-<script src="" async defer></script>
 </body>
 <style>
     .tools-panel {
@@ -138,5 +135,3 @@ $daten = $name . "\n" . $telefon . "\n" . $email . "\n" . $firma . "\n" . $posit
     }
 </style>
 </html>
-<!-- HTMl ausgabe der visitankarte -->
-<!-- QR und PDF einbinden! -->
