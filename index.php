@@ -22,6 +22,7 @@ $firma = getField($v, 'firma') ?: getField($v, 'company');
 $position = getField($v, 'position') ?: getField($v, 'job');
 $adresse = getField($v, 'adresse') ?: getField($v, 'address');
 $website = getField($v, 'website') ?: getField($v, 'web');
+$daten = $vorname . "\n" . $nachname . "\n" . $name . "\n" . $telefon . "\n" . $email . "\n" . $firma . "\n" . $position . "\n" . $adresse . "\n" . $website;
 ?>
 <!DOCTYPE html>
 <html>
@@ -53,6 +54,7 @@ $website = getField($v, 'website') ?: getField($v, 'web');
 
     <footer style="margin-top:12px;">
         <div style="display:inline-block;">
+            <?php include('createpdf.php'); ?>
             <?php include('createqr.php'); ?>
         </div>
     </footer>
